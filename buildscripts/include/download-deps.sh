@@ -49,6 +49,27 @@ fi
 
 [ ! -d libplacebo ] && git clone --depth 1 --branch v$v_libplacebo --recurse-submodules https://code.videolan.org/videolan/libplacebo.git libplacebo
 
+# libdvdcss
+if [ ! -d libdvdcss ]; then
+	mkdir libdvdcss
+	$WGET https://download.videolan.org/pub/libdvdcss/$v_libdvdcss/libdvdcss-$v_libdvdcss.tar.bz2 -O - | \
+		tar -xj -C libdvdcss --strip-components=1
+fi
+
+# libdvdread
+if [ ! -d libdvdread ]; then
+	mkdir libdvdread
+	$WGET https://download.videolan.org/pub/videolan/libdvdread/$v_libdvdread/libdvdread-$v_libdvdread.tar.bz2 -O - | \
+		tar -xj -C libdvdread --strip-components=1
+fi
+
+# libdvdnav
+if [ ! -d libdvdnav ]; then
+	mkdir libdvdnav
+	$WGET https://download.videolan.org/pub/videolan/libdvdnav/$v_libdvdnav/libdvdnav-$v_libdvdnav.tar.bz2 -O - | \
+		tar -xj -C libdvdnav --strip-components=1
+fi
+
 # mpv
 [ ! -d mpv ] && git clone --depth 1 --branch v$v_mpv https://github.com/mpv-player/mpv.git mpv
 

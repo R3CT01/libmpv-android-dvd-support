@@ -20,6 +20,9 @@ v_mbedtls=3.6.7
 v_libplacebo=7.387.0
 v_dav1d=1.5.4
 v_ffmpeg=9.0.2
+v_libdvdcss=1.4.3
+v_libdvdread=6.1.3
+v_libdvdnav=6.1.1
 v_mpv=0.41.0
 
 
@@ -37,5 +40,8 @@ dep_libunibreak=()
 dep_libass=(freetype fontconfig fribidi harfbuzz libunibreak)
 dep_lua=()
 dep_libplacebo=()
-dep_mpv=(ffmpeg libass lua libplacebo)
+dep_libdvdcss=()
+dep_libdvdread=(libdvdcss)
+dep_libdvdnav=(libdvdread)
+dep_mpv=(ffmpeg libass lua libplacebo libdvdnav)
 dep_mpv_android=(mpv)
