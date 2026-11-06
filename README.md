@@ -1,4 +1,4 @@
-# libmpv for Android
+# custom build of libmpv with DVD support
 
 Based on [mpv-android](https://github.com/mpv-android/mpv-android)
 
