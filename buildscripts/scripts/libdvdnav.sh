@@ -24,6 +24,11 @@ cd $build
 make -j$cores
 make DESTDIR="$prefix_dir" install
 
+# libtool's .la files record /usr/local/lib paths that don't exist with DESTDIR
+# installs and break later libtool links. The static .a files and pkg-config
+# are all that's needed, so drop them.
+rm -f "$prefix_dir"/lib/libdvdnav.la
+
 # mpv links libdvdnav as a static archive, so libdvdread has to show up on the
 # link line. Make it a public requirement so pkg-config always reports it.
 pc="$prefix_dir/lib/pkgconfig/dvdnav.pc"

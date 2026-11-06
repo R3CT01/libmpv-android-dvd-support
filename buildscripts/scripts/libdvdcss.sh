@@ -24,3 +24,8 @@ cd $build
 
 make -j$cores
 make DESTDIR="$prefix_dir" install
+
+# libtool's .la files record /usr/local/lib paths that don't exist with DESTDIR
+# installs and break later libtool links. The static .a files and pkg-config
+# are all that's needed, so drop them.
+rm -f "$prefix_dir"/lib/libdvdcss.la
